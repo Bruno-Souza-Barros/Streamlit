@@ -1,12 +1,14 @@
 import streamlit as st
 from ferramentapreco import ferramenta_preco
+from filmes import filmes_eda
 
 def main():
     # Configuração da página
     st.set_page_config(page_title="Portfólio Bruno Barros", layout="wide")
     pages = {
-        "Sobre Mim": page_resumo_profissional,
-        "Ferramenta de previsão dos preços de casas": page_ferramenta_previsao
+        "Sobre mim": page_resumo_profissional,
+        "Ferramenta de previsão dos preços de casas": page_ferramenta_previsao,
+        "Análise exploratória de dados (EDA) de filmes":page_ferramenta_filme
     }
     st.sidebar.image('Dados_Imagem.png')
     page = st.sidebar.radio("Escolha uma página:", tuple(pages.keys()))
@@ -34,15 +36,12 @@ def page_resumo_profissional():
     # Projetos de Destaque
     st.header('Projetos')
     # Colunas para imagem e botão
-    col1, col2 = st.columns([1, 1]) # Ajuste as proporções conforme necessário
-
-    with col1:
-        st.subheader('1. Ferramenta de previsão dos preços de casas')
-        st.write('Esse projeto tem como objetivo prever preços de casas utilizando modelos de regressão. Basta acessar a página **Ferramenta de previsão dos preços de casas** para visualizar o projeto completo.')
-
-    with col2:
-        # Quando o botão é pressionado, a função go_to_forecast_page é executada
-        st.image('ferramenta_casa_imagem.png')
+ 
+    st.subheader('1. Ferramenta de previsão dos preços de casas')
+    st.write('Esse projeto tem como objetivo prever preços de casas utilizando modelos de regressão. Basta acessar a página **Ferramenta de previsão dos preços de casas** para visualizar o projeto completo.')
+    st.subheader('2. Análise exploratória de dados de filmes')
+    st.write('Esse projeto tem como objetivo fazer uma EDA do Top250 filmes do IMDb. Basta acessar a página **Análise exploratória de dados (EDA) de filmes** para visualizar o projeto completo.')
+    
     # Contato/Call to Action
     st.header('Entre em Contato')
     st.write('Caso queira discutir oportunidades ou colaborações, sinta-se à vontade para entrar em contato por [Email](mailto:brunosouzabarros10@gmail.com) ou pelo [LinkedIn](https://www.linkedin.com/in/brunosouzabarros/).') 
@@ -53,6 +52,9 @@ def page_resumo_profissional():
 
 def page_ferramenta_previsao():
     ferramenta_precos = ferramenta_preco()
+
+def page_ferramenta_filme():
+    filme_eda = filmes_eda()
 
 if __name__ == "__main__":
     main()
