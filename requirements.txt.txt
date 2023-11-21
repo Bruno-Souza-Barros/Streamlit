@@ -4,7 +4,7 @@ matplotlib
 seaborn
 numpy
 scipy
-scikit-learn
-plotly
+scikit-learn == 1.3.2
+plotly == 5.9.0
 imblearn
-xgboost
+xgboost == 2.0.2
