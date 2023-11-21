@@ -1,6 +1,8 @@
 import streamlit as st
 from ferramentapreco import ferramenta_preco
 from filmes import filmes_eda
+from credito import ferramenta_credito
+from simulacaochurn import simulacao_churn
 
 def main():
     # Configuração da página
@@ -8,7 +10,8 @@ def main():
     pages = {
         "Sobre mim": page_resumo_profissional,
         "Ferramenta de previsão dos preços de casas": page_ferramenta_previsao,
-        "Análise exploratória de dados (EDA) de filmes":page_ferramenta_filme
+        "Análise exploratória de dados (EDA) de filmes":page_ferramenta_filme,
+        "Ferramenta de classificação de churn em um banco":page_ferramenta_credito
     }
     st.sidebar.image('Dados_Imagem.png')
     page = st.sidebar.radio("Escolha uma página:", tuple(pages.keys()))
@@ -41,6 +44,8 @@ def page_resumo_profissional():
     st.write('Esse projeto tem como objetivo prever preços de casas utilizando modelos de regressão. Basta acessar a página **Ferramenta de previsão dos preços de casas** para visualizar o projeto completo.')
     st.subheader('2. Análise exploratória de dados de filmes')
     st.write('Esse projeto tem como objetivo fazer uma EDA do Top250 filmes do IMDb. Basta acessar a página **Análise exploratória de dados (EDA) de filmes** para visualizar o projeto completo.')
+    st.subheader('3. Ferramenta de classificação de churn em um banco')
+    st.write('Esse projeto tem como objetivo prever se um cliente de um banco vai dar churn. Basta acessar a página **Ferramenta de classificação de churn em um banco** para visualizar o projeto completo.')
     
     # Contato/Call to Action
     st.header('Entre em Contato')
@@ -55,6 +60,10 @@ def page_ferramenta_previsao():
 
 def page_ferramenta_filme():
     filme_eda = filmes_eda()
+
+def page_ferramenta_credito():
+    simulacao_churns = simulacao_churn()
+    ferramenta_creditos = ferramenta_credito()
 
 if __name__ == "__main__":
     main()
