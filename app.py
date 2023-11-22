@@ -2,7 +2,6 @@ import streamlit as st
 from ferramentapreco import ferramenta_preco
 from filmes import filmes_eda
 from credito import ferramenta_credito
-from simulacaochurn import simulacao_churn
 
 def main():
     # Configuração da página
@@ -62,7 +61,6 @@ def page_ferramenta_filme():
     filme_eda = filmes_eda()
 
 def page_ferramenta_credito():
-    simulacao_churns = simulacao_churn()
     ferramenta_creditos = ferramenta_credito()
 
 if __name__ == "__main__":
