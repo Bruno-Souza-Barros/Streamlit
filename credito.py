@@ -14,9 +14,10 @@ from sklearn.preprocessing import MinMaxScaler
 from imblearn.over_sampling import SMOTE
 from xgboost import XGBClassifier
 import io
+from simulacaochurn import simulacao_churn
 
-@st.cache_data(show_spinner=False)
 def ferramenta_credito():
+    simulacao_churns = simulacao_churn()
     st.markdown('<p style="font-size:24px;">Parte 1: Primeiras impressões dos dados</p>', unsafe_allow_html=True)
     with st.echo():
         # Carregando o conjunto de dados
